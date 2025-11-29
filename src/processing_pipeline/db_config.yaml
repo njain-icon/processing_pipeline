@@ -1,0 +1,22 @@
+# Database configuration for SQL discovery and PII annotations
+# Matches your working sql_only_smoke.py connection
+
+database:
+  # SQL Server settings
+  server: "MLTEST"
+  database: "iconect_PROJECT_5"
+
+  # Table names
+  table_name: "ANNOTS_5"  # Main annotations table
+
+  # Authentication method: 'windows' for Trusted_Connection
+  auth_method: "windows"
+
+  # ODBC driver version
+  driver: "ODBC Driver 18 for SQL Server"
+
+  # Connection timeout
+  timeout: 30
+
+  # Trust server certificate (for self-signed certs)
+  trust_server_certificate: true

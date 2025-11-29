@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: processing-pipeline
+  labels:
+    app: processing-pipeline
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: processing-pipeline
+  template:
+    metadata:
+      labels:
+        app: processing-pipeline
+    spec:
+      containers:
+      - name: processing-pipeline
+        image: processing-pipeline:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5

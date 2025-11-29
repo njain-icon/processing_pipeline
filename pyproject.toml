@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "processing_pipeline"
+version = "0.1.0"
+description = "Processing pipeline for document classification and OCR"
+authors = [
+  { name = "Nishan Jain", email = "nishan@example.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.68.0",
+    "uvicorn>=0.15.0",
+    "requests>=2.26.0",
+    "ocr_pipeline @ git+https://github.com/njain-icon/ocr_pipeline.git",
+    "classifier @ git+https://github.com/njain-icon/classifier.git",
+    "pdf2img==0.1.2",
+    "opencv-python-headless>=4.5.0",
+    "pdf2image>=1.16.0",
+    "Pillow>=9.0.0",
+    "numpy>=1.21.0",
+    "pyyaml>=6.0",
+    "pyodbc>=4.0.30",
+    "thrift>=0.13.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/njain-icon/processing_pipeline"
